@@ -5,8 +5,10 @@ const { Router } = require('express');
 //REQUIRE GET
 const getCart = require("../controllers/Get/Get_id/GetCartId")
 const getConsultation = require("../controllers/Get/GetConsultation")
+const getConsultationId = require("../controllers/Get/Get_id/GetConsultationId")
 const getOrders = require("../controllers/Get/GetOrders")
 const getProcedure = require("../controllers/Get/GetProcedure")
+const getProcedureId = require("../controllers/Get/Get_id/GetProcedureId")
 const getProducts = require("../controllers/Get/GetProducts")
 const getUsers = require("../controllers/Get/GetUsers")
 
@@ -44,10 +46,16 @@ const router = Router();
 //GET
 router.use("/users", getUsers)
 router.use("/products", getProducts)
-router.use("/consultation", getConsultation)
+router.use("/consultations", getConsultation)
+router.use("/consultation", getConsultationId)
 router.use("/orders", getOrders)
-router.use("/procedure", getProcedure)
+router.use("/procedures", getProcedure)
 router.use("/cart", getCart)
+
+//acomodar
+router.use("/procedure", getProcedureId)
+
+
 
 //POST
 router.use("/users", postUsers)

@@ -1,12 +1,12 @@
 const { Router } = require('express');
-const { Tramite } = require("../../../db")
+const { Tramite, Usuario } = require("../../../db")
 const router = Router();
 
 
 router.get("/:id", async (req, res) => {
     try {
         const {id} = req.params;
-        const allProcedureId = Consulta.findByPk(id, {
+        const allProcedureId = Tramite.findByPk(id, {
             include: [{
                 model: Usuario,
                 attributes:  ["id", "admin", "visible", 'nombre', 'imagen', "email"]

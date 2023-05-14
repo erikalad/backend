@@ -5,7 +5,7 @@ const router = Router();
 
 router.get("/:id", async (req, res, next) => {
     try {
-        const {id} = req.params
+        let {id} = req.params
         if (id) {
             const cartId = await Carrito.findByPk(id, {
                 where: {

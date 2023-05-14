@@ -9,9 +9,14 @@ const getOrders = require("../controllers/Get/GetOrders")
 const getProcedure = require("../controllers/Get/GetProcedure")
 const getProducts = require("../controllers/Get/GetProducts")
 const getUsers = require("../controllers/Get/GetUsers")
+
+//REQUIRE GET_ID
+const getConsultationId = require("../controllers/Get/Get_id/GetConsultationId")
+const getProcedureId = require("../controllers/Get/Get_id/GetProcedureId")
 const getUserId = require("../controllers/Get/Get_id/GetUserId")
 const getOrderId = require("../controllers/Get/Get_id/GetOrderId")
 const getProductId = require("../controllers/Get/Get_id/GetProductId")
+
 
 //REQUIRE PUT
 const putCart = require("../controllers/Put/PutCart")
@@ -47,10 +52,15 @@ const router = Router();
 //GET
 router.use("/users", getUsers)
 router.use("/products", getProducts)
-router.use("/consultation", getConsultation)
+router.use("/consultations", getConsultation)
+router.use("/consultation", getConsultationId)
 router.use("/orders", getOrders)
-router.use("/procedure", getProcedure)
+router.use("/procedures", getProcedure)
 router.use("/cart", getCart)
+
+//acomodar
+
+
 
 //POST
 router.use("/users", postUsers)
@@ -80,5 +90,7 @@ router.use("/cart", deleteCart)
 router.use("/user",getUserId)
 router.use("/order",getOrderId)
 router.use("/product",getProductId)
+router.use("/procedure", getProcedureId)
+
 
 module.exports = router;

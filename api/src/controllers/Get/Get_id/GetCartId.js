@@ -1,9 +1,8 @@
 const { Router } = require('express');
-const { Carrito, Usuario, Producto } = require("../../../db");
+const { Carrito, Usuario, Producto } = require("../../../db")
 const router = Router();
 
 
-// pedimos todos los usuarios
 router.get("/:id", async (req, res, next) => {
     try {
         const {id} = req.params
@@ -15,7 +14,7 @@ router.get("/:id", async (req, res, next) => {
                 include: [
                     {
                         model: Usuario,
-                        attributes: ['nombre', "imagen", "email"]
+                        attributes: ["id", "admin", "visible", 'nombre', 'imagen', "email"]
                     },
                     {
                         model: Producto,
@@ -23,8 +22,9 @@ router.get("/:id", async (req, res, next) => {
                     }
                 ]
             })
+            res.status(200).json(cartId);
+
         }
-        res.status(200).json(cartId);
     } catch (error) {
         next(error)
         res.status(404)

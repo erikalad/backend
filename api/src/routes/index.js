@@ -3,7 +3,7 @@ const { Router } = require('express');
 // Ejemplo: const authRouter = require('./auth.js');
 
 //REQUIRE GET
-const getCart = require("../controllers/Get/GetCart")
+const getCart = require("../controllers/Get/Get_id/GetCartId")
 const getConsultation = require("../controllers/Get/GetConsultation")
 const getOrders = require("../controllers/Get/GetOrders")
 const getProcedure = require("../controllers/Get/GetProcedure")

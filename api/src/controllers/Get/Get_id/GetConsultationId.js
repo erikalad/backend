@@ -1,23 +1,23 @@
 const { Router } = require('express');
-const { Consulta } = require("../../db")
+const { Consulta, Usuario } = require("../../../db")
 const router = Router();
 
 
-// pedimos todos los usuarios
 router.get("/:id", async (req, res) => {
     try {
-        const {id} = req.params;
-        const allConsultationId = Consulta.findByPk(id, {
+        const { id } = req.params;
+        const allConsultations = await Consulta.findOne({
+            where: { 
+                usuarioId: id,
+             },
             include: [{
                 model: Usuario,
-                attributes: ['nombre', 'imagen', "email"]
-              }]
+                attributes: ["id", "admin", "visible", 'nombre', 'imagen', "email"]
+            }]
         })
-        res.status(200).json(allConsultationId)
-       
+        res.status(200).json(allConsultations)
     } catch (error) {
         res.status(404).json(error);
-
     }
 })
 

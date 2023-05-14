@@ -15,7 +15,7 @@ router.get("/:id", async (req, res) => {
                 attributes: ["id", "admin", "visible", 'nombre', 'imagen', "email"]
             }]
         })
-        res.status(200).json(allConsultations)
+        res.status(200).json(productId)
     } catch (error) {
         res.status(404).json(error);
     }

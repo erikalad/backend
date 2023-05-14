@@ -9,6 +9,7 @@ const getOrders = require("../controllers/Get/GetOrders")
 const getProcedure = require("../controllers/Get/GetProcedure")
 const getProducts = require("../controllers/Get/GetProducts")
 const getUsers = require("../controllers/Get/GetUsers")
+const getUserId = require("../controllers/Get/Get_id/GetUserId")
 
 //REQUIRE PUT
 const putCart = require("../controllers/Put/PutCart")
@@ -73,6 +74,7 @@ router.use("/orders", deleteOrders)
 router.use("/procedure", deleteProcedure)
 router.use("/cart", deleteCart)
 
-
+//GETBYID
+router.use("/user",getUserId)
 
 module.exports = router;

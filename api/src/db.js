@@ -42,9 +42,9 @@ const { Usuario, Carrito, Consulta, Producto, Tramite, OrdenCompra } = sequelize
 }) */
 
 //ESTO SIGNIFICA DE UNO A MUCHOS
-Usuario.hasMany(Consulta)
+Usuario.hasMany(Consulta, { foreignKey: 'usuarioId' })
 //UNO A UNO
-Consulta.belongsTo(Usuario)
+Consulta.belongsTo(Usuario, { foreignKey: 'usuarioId' })
 
 Usuario.hasMany(Tramite)
 Tramite.belongsTo(Usuario)

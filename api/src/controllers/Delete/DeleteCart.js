@@ -6,6 +6,7 @@ const router = Router();
 // pedimos todos los usuarios
 router.delete("/:id", async (req, res, next) => {
     try {
+        console.log("delete")
        
     } catch (error) {
         

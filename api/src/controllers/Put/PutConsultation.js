@@ -11,9 +11,12 @@ router.put("/:id", async (req, res, next) => {
             await Consulta.update({
               dia: req.body.dia,
               hora: req.body.hora,
+            },
+            {
+              where: { id: req.params.id }, // Condición para actualizar el registro específico
             });
         
-            res.status(200).send(`Consulta actualizado ${JSON.stringify(Consulta)}`);
+            res.status(200).send("Consulta actualizada actualizada");
            
            
           } else {

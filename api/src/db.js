@@ -46,14 +46,14 @@ Usuario.hasMany(Consulta, { foreignKey: 'usuarioId' })
 //UNO A UNO
 Consulta.belongsTo(Usuario, { foreignKey: 'usuarioId' })
 
-Usuario.hasMany(Tramite)
-Tramite.belongsTo(Usuario)
+Usuario.hasMany(Tramite,{ foreignKey: 'usuarioProcedureId' })
+Tramite.belongsTo(Usuario, { foreignKey: 'usuarioProcedureId' })
 
 
-Usuario.belongsTo(Carrito)
-Carrito.belongsTo(Usuario)
+Usuario.belongsTo(Carrito, { foreignKey: 'usuarioCartId' })
+Carrito.belongsTo(Usuario, { foreignKey: 'usuarioCartId' })
 
-Carrito.hasMany(Producto)
+Carrito.hasMany(Producto )
 Producto.belongsTo(Carrito)
 
 Usuario.belongsTo(OrdenCompra)

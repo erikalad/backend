@@ -3,10 +3,9 @@ const { Tramite, Usuario } = require("../../db")
 const router = Router();
 
 
-// pedimos todos los usuarios
 router.get("/", async (req, res, next) => {
     try {
-        const allProcedure = Tramite.findAll({
+        const allProcedure = await Tramite.findAll({
             include: [{
                 model: Usuario,
                 attributes: ["id", "admin", "visible", 'nombre', 'imagen', "email"]

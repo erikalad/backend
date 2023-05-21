@@ -3,12 +3,13 @@ const { Router } = require('express');
 // Ejemplo: const authRouter = require('./auth.js');
 
 //REQUIRE GET
-const getCart = require("../controllers/Get/Get_id/GetCartId")
 const getConsultation = require("../controllers/Get/GetConsultation")
 const getOrders = require("../controllers/Get/GetOrders")
 const getProcedure = require("../controllers/Get/GetProcedure")
 const getProducts = require("../controllers/Get/GetProducts")
 const getUsers = require("../controllers/Get/GetUsers")
+const getAllCarts = require("../controllers/Get/GetAllCarts")
+
 
 //REQUIRE GET_ID
 const getConsultationId = require("../controllers/Get/Get_id/GetConsultationId")
@@ -16,6 +17,7 @@ const getProcedureId = require("../controllers/Get/Get_id/GetProcedureId")
 const getUserId = require("../controllers/Get/Get_id/GetUserId")
 const getOrderId = require("../controllers/Get/Get_id/GetOrderId")
 const getProductId = require("../controllers/Get/Get_id/GetProductId")
+const getCart = require("../controllers/Get/Get_id/GetCartId")
 
 
 //REQUIRE PUT
@@ -56,9 +58,8 @@ router.use("/consultations", getConsultation)
 router.use("/consultation", getConsultationId)
 router.use("/orders", getOrders)
 router.use("/procedures", getProcedure)
-router.use("/cart", getCart)
+router.use("/carts", getAllCarts)
 
-//acomodar
 
 
 
@@ -69,7 +70,7 @@ router.use("/consultation", postConsultation)
 router.use("/orders", postOrders)
 router.use("/procedure", postProcedure)
 router.use("/cart", postCart)
-
+ 
 //PUT
 router.use("/users", putUsers)
 router.use("/products", putProducts)
@@ -91,6 +92,8 @@ router.use("/user",getUserId)
 router.use("/order",getOrderId)
 router.use("/product",getProductId)
 router.use("/procedure", getProcedureId)
+router.use("/cart", getCart)
+
 
 
 module.exports = router;

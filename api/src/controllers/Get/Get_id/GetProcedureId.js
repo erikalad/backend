@@ -6,7 +6,7 @@ const router = Router();
 router.get("/:id", async (req, res) => {
     try {
         const {id} = req.params;
-        const allProcedureId = Tramite.findByPk(id, {
+        const allProcedureId = await Tramite.findByPk(id, {
             include: [{
                 model: Usuario,
                 attributes:  ["id", "admin", "visible", 'nombre', 'imagen', "email"]

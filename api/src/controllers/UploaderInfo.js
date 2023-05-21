@@ -1,4 +1,4 @@
-const {Carrito, Usuario, Consulta, Tramite} = require("../db.js")
+const {Carrito, Usuario, Consulta, Tramite, Producto} = require("../db.js");
 
 
  async function UploaderUsers (){
@@ -52,28 +52,9 @@ const {Carrito, Usuario, Consulta, Tramite} = require("../db.js")
         console.log(error)
     }}
 
-  async function UploaderConsultation (){
+   async function UploaderConsultation (){
     try{
 
-  /*    const allConsultations = [
-        {
-          "dia": "2023-05-15",
-          "hora": "15:30",
-          "usuario_consulta": "7bc560ed-8718-4856-9368-003bd042a5f9"
-        },
-        {
-          "dia": "2023-05-15",
-          "hora": "16:15",
-          "usuario_consulta": "7bc560ed-8718-4856-9368-003bd042a5f9"
-        },
-        {
-          "dia": "2023-05-16",
-          "hora": "10:45",
-          "usuario_consulta": "7bc560ed-8718-4856-9368-003bd042a5f9"
-        },
-       
-      ]   
- */
 
          const allConsultations = [
         {
@@ -105,12 +86,75 @@ const {Carrito, Usuario, Consulta, Tramite} = require("../db.js")
     } catch(error) {
         console.log(error)
     }} 
+ 
 
+    async function UploaderProcedures (){
+      try{
+        const allProcedures = [
+          {
+            estado: 'PENDIENTE',
+            documentacion: 'APROBADO',
+            informacion: 'texto-ejemplo1'
+          },
+          {
+            estado: 'APROBADO',
+            documentacion: 'RECHAZADO',
+            informacion: 'texto-ejemplo2'
+          },
+          {
+            estado: 'CANCELADO',
+            documentacion: 'CANCELADO',
+            informacion: 'texto-ejemplo3'
+          }
+        ];
+        
+
+          await Tramite.bulkCreate(allProcedures)
+          console.log("Base de datos de tramites hardcodeadas, cargada correctamente") 
+  
+      } catch(error) {
+          console.log(error)
+      }} 
+
+      async function UploaderProducts (){
+        try{
+    
+    
+             const allProduts = [
+              {
+                "nombre": "Producto 1",
+                "cantidad": 10,
+                "imagen": "imagen1.jpg",
+                "precio": 100
+              },
+              {
+                "nombre": "Producto 2",
+                "cantidad": 5,
+                "imagen": "imagen2.jpg",
+                "precio": 50
+              },
+              {
+                "nombre": "Producto 3",
+                "cantidad": 8,
+                "imagen": "imagen3.jpg",
+                "precio": 80
+              }
+          ]  
+           
+    
+            await Producto.bulkCreate(allProduts)
+            console.log("Base de datos de productos hardcodeados, cargada correctamente") 
+    
+        } catch(error) {
+            console.log("error", error.message)
+        }} 
     
 module.exports = {
     UploaderUsers,
+    UploaderProcedures,
     UploaderConsultation,
-   
+    UploaderProducts,
+    
 }
 
 
